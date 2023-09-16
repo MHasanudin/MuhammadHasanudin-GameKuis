@@ -1,0 +1,12 @@
+
+Library/* 
+Logs/* 
+Temp/* 
+.vs/* 
+.vscode/*
+obj/* 
+ 
+.vsconfig 
+*.sln 
+*.csproj 
+.gitattributes
