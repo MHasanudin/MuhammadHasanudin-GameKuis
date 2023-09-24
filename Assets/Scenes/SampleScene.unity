@@ -2800,47 +2800,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957f3259418b61949b375fe903573e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soalSoal:
-  - pertanyaan: Apa warna Mawar?
-    petunjukJawaban: {fileID: 21300000, guid: 9c7cd2767bf65344eb23a40f5d5f9010, type: 3}
-    pilihJawaban:
-    - Merah
-    - Biru
-    - Hijau
-    - Kuning
-    adalahBenar: 01000000
-  - pertanyaan: Apa warna Langit?
-    petunjukJawaban: {fileID: 21300000, guid: d7ed0a45264a99440b12ff65fc5e5fce, type: 3}
-    pilihJawaban:
-    - Merah
-    - Biru
-    - Hijau
-    - Kuning
-    adalahBenar: 00010000
-  - pertanyaan: Apa warna Daun?
-    petunjukJawaban: {fileID: 21300000, guid: a7759161880f2ec4eb3fa3dafeea9776, type: 3}
-    pilihJawaban:
-    - Merah
-    - Biru
-    - Hijau
-    - Kuning
-    adalahBenar: 00000100
-  - pertanyaan: Apa warna Matahari?
-    petunjukJawaban: {fileID: 21300000, guid: fbb37dc6948a233498e3a1b450f040fc, type: 3}
-    pilihJawaban:
-    - Merah
-    - Biru
-    - Hijau
-    - Kuning
-    adalahBenar: 00000001
-  - pertanyaan: Apa warna Laut?
-    petunjukJawaban: {fileID: 21300000, guid: 09db792aab358f24e9e8497a99c28202, type: 3}
-    pilihJawaban:
-    - Merah
-    - Biru
-    - Hijau
-    - Kuning
-    adalahBenar: 00010000
+  _playerProgres: {fileID: 11400000, guid: 946c359be46bd904fb92d17dc4637791, type: 2}
+  _soalSoal: {fileID: 11400000, guid: 55e4b66a0c360bf408e1668a87136779, type: 2}
   _pertanyaan: {fileID: 182190034}
   _pilihanJawaban:
   - {fileID: 57467137}
