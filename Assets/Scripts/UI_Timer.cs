@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class UI_Timer : MonoBehaviour
 {
-    [SerializeField] private UI_PesanLevel _tempatPesan = null;
+    public static event System.Action EventWaktuHabis;
+
+    //[SerializeField] private UI_PesanLevel _tempatPesan = null;
 
     [SerializeField] private Slider _timeBar;
     [SerializeField] private float _waktuJawab = 30f;
@@ -19,13 +21,13 @@ public class UI_Timer : MonoBehaviour
         set => _waktuBerjalan = value;
     }
 
-    void Start()
+    private void Start()
     {
         UlangWaktu();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if(!_waktuBerjalan)
         {
@@ -35,12 +37,12 @@ public class UI_Timer : MonoBehaviour
         _sisaWaktu -= Time.deltaTime;
         _timeBar.value = _sisaWaktu / _waktuJawab;
 
-        if(_sisaWaktu <= 0)
+        if(_sisaWaktu <= 0f)
         {
-            //Debug.Log("Waktu Habis");
+            //_tempatPesan.Pesan = "Waktu Sudah Habis!!!";
+            //_tempatPesan.gameObject.SetActive(true);
 
-            _tempatPesan.Pesan = "Waktu Sudah Habis!!!";
-            _tempatPesan.gameObject.SetActive(true);
+            EventWaktuHabis?.Invoke();
             _waktuBerjalan = false;
             return;
         }

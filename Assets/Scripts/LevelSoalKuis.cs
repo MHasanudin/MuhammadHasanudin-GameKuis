@@ -15,6 +15,7 @@ public class LevelSoalKuis : ScriptableObject
 
     public string pertanyaan = string.Empty;
     public Sprite petunjukJawaban = null;
+    public int levelPackIndex = 0;
 
     public OpsiJawaban[] opsiJawaban = new OpsiJawaban[0];
 }

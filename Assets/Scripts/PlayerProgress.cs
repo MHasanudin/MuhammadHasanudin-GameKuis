@@ -21,7 +21,7 @@ public class PlayerProgress : ScriptableObject
 
     public void SimpanProgres()
     {
-        progresData.koin = 200;
+        //progresData.koin = 200;
         if(progresData.progresLevel == null)
         {
             progresData.progresLevel = new();
@@ -102,7 +102,7 @@ public class PlayerProgress : ScriptableObject
 
             fileStream.Dispose();
 
-            Debug.Log($"{progresData.koin}; {progresData.progresLevel.Count}");
+            //Debug.Log($"{progresData.koin}; {progresData.progresLevel.Count}");
 
             return true;
         }
