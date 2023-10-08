@@ -15,23 +15,27 @@ public class PlayerProgress : ScriptableObject
         public Dictionary<string, int> progresLevel;
     }
 
-    [SerializeField]private string _filename = "contoh.txt";
+    [SerializeField] private string _filename = "contoh.txt";
+
+    [SerializeField] private string _startingLevelPackName = string.Empty;
 
     public MainData progresData = new MainData();
 
     public void SimpanProgres()
     {
-        //progresData.koin = 200;
         if(progresData.progresLevel == null)
         {
             progresData.progresLevel = new();
+            progresData.koin = 0;
+            progresData.progresLevel.Add(_startingLevelPackName, 1);
         }
-        progresData.progresLevel.Add("Level Pack 1", 3);
-        progresData.progresLevel.Add("Level Pack 3", 5);
 
+#if UNITY_EDITOR
+        string directory = Application.dataPath + "/Temporary";
+#elif (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
+        string directory = Application.persistentDataPath + "/ProgresLokal/";
+#endif
 
-        
-        var directory = Application.dataPath + "/Temporary";
         var path = directory +  "/" + _filename;
 
         if (!Directory.Exists(directory))
@@ -40,7 +44,7 @@ public class PlayerProgress : ScriptableObject
             Debug.Log("Directory has been Created : " + directory);
         }
 
-        if (File.Exists(path))
+        if (!File.Exists(path))
         {
             File.Create(path).Dispose();
             Debug.Log("File Created : " + path);
@@ -67,8 +71,19 @@ public class PlayerProgress : ScriptableObject
 
     public bool MuatProgres()
     {
-        var directory = Application.dataPath + "/Temporary";
+
+#if UNITY_EDITOR
+        string directory = Application.dataPath + "/Temporary";
+#elif (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
+        string directory = Application.persistentDataPath + "/ProgresLokal/";
+#endif
+
         var path = directory + "/" + _filename;
+
+        if (!Directory.Exists(directory))
+        {
+            SimpanProgres();
+        }
 
         var fileStream = File.Open(path, FileMode.OpenOrCreate);
 

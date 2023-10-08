@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class UI_PesanLevel : MonoBehaviour
 {
+    [SerializeField] private Animator _animator = null;
     [SerializeField] private GameObject _opsiMenang = null;
     [SerializeField] private GameObject _opsiKalah = null;
 
@@ -36,6 +37,8 @@ public class UI_PesanLevel : MonoBehaviour
         Pesan = $"Jawaban anda {adalahBenar} (Jawab : {jawabanTeks})";
         gameObject.SetActive(true);
 
+        _animator.SetBool("Menang", adalahBenar);
+
         if (adalahBenar)
         {
             _opsiMenang.SetActive(true);
@@ -46,14 +49,18 @@ public class UI_PesanLevel : MonoBehaviour
             _opsiMenang.SetActive(false);
             _opsiKalah.SetActive(true);
         }
+
     }
 
     private void UI_Timer_EventWaktuHabis()
     {
+        _animator.SetBool("Menang", false);
+
         Pesan = "Waktu Sudah Habis";
         gameObject.SetActive(true);
 
         _opsiMenang.SetActive(false);
         _opsiKalah.SetActive(true);
+
     }
 }
